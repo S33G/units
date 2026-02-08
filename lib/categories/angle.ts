@@ -1,0 +1,55 @@
+import type { Category } from "@/lib/types";
+
+export const angle: Category = {
+  id: "angle",
+  name: "Angle",
+  icon: "📐",
+  baseUnitId: "radians",
+  units: [
+    {
+      id: "degrees",
+      name: "Degrees",
+      symbol: "°",
+      factor: Math.PI / 180,
+      precision: "approximate",
+      formulaToBase: "value × π/180",
+      source: "Circle definition: 360° = 2π rad",
+    },
+    {
+      id: "radians",
+      name: "Radians",
+      symbol: "rad",
+      factor: 1,
+      precision: "exact",
+      formulaToBase: "value × 1",
+      source: "SI derived unit",
+    },
+    {
+      id: "gradians",
+      name: "Gradians",
+      symbol: "gon",
+      factor: Math.PI / 200,
+      precision: "approximate",
+      formulaToBase: "value × π/200",
+      source: "By definition: 400 gon = 2π rad",
+    },
+    {
+      id: "arcminutes",
+      name: "Arcminutes",
+      symbol: "′",
+      factor: Math.PI / 10800,
+      precision: "approximate",
+      formulaToBase: "value × π/10800",
+      source: "By definition: 1′ = 1/60°",
+    },
+    {
+      id: "arcseconds",
+      name: "Arcseconds",
+      symbol: "″",
+      factor: Math.PI / 648000,
+      precision: "approximate",
+      formulaToBase: "value × π/648000",
+      source: "By definition: 1″ = 1/60′",
+    },
+  ],
+};

@@ -1,0 +1,55 @@
+import type { Category } from "@/lib/types";
+
+export const frequency: Category = {
+  id: "frequency",
+  name: "Frequency",
+  icon: "🔄",
+  baseUnitId: "hertz",
+  units: [
+    {
+      id: "hertz",
+      name: "Hertz",
+      symbol: "Hz",
+      factor: 1,
+      precision: "exact",
+      formulaToBase: "value × 1",
+      source: "SI derived unit",
+    },
+    {
+      id: "kilohertz",
+      name: "Kilohertz",
+      symbol: "kHz",
+      factor: 1000,
+      precision: "exact",
+      formulaToBase: "value × 1000",
+      source: "SI definition",
+    },
+    {
+      id: "megahertz",
+      name: "Megahertz",
+      symbol: "MHz",
+      factor: 1000000,
+      precision: "exact",
+      formulaToBase: "value × 1000000",
+      source: "SI definition",
+    },
+    {
+      id: "gigahertz",
+      name: "Gigahertz",
+      symbol: "GHz",
+      factor: 1000000000,
+      precision: "exact",
+      formulaToBase: "value × 1000000000",
+      source: "SI definition",
+    },
+    {
+      id: "rpm",
+      name: "Revolutions per Minute",
+      symbol: "rpm",
+      factor: 1 / 60,
+      precision: "exact",
+      formulaToBase: "value × 1/60",
+      source: "By definition: 1 rpm = 1/60 Hz",
+    },
+  ],
+};

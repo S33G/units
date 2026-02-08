@@ -1,0 +1,50 @@
+import type { Category } from "@/lib/types";
+
+export const temperature: Category = {
+  id: "temperature",
+  name: "Temperature",
+  icon: "🌡️",
+  baseUnitId: "kelvin",
+  units: [
+    {
+      id: "kelvin",
+      name: "Kelvin",
+      symbol: "K",
+      toBase: (value) => value,
+      fromBase: (value) => value,
+      precision: "exact",
+      formulaToBase: "value",
+      source: "SI base unit",
+    },
+    {
+      id: "celsius",
+      name: "Celsius",
+      symbol: "°C",
+      toBase: (value) => value + 273.15,
+      fromBase: (value) => value - 273.15,
+      precision: "exact",
+      formulaToBase: "value + 273.15",
+      source: "ITS-90 / SI relation",
+    },
+    {
+      id: "fahrenheit",
+      name: "Fahrenheit",
+      symbol: "°F",
+      toBase: (value) => (value - 32) * (5 / 9) + 273.15,
+      fromBase: (value) => (value - 273.15) * (9 / 5) + 32,
+      precision: "exact",
+      formulaToBase: "(value - 32) × 5/9 + 273.15",
+      source: "Defined Fahrenheit to Celsius/Kelvin relation",
+    },
+    {
+      id: "rankine",
+      name: "Rankine",
+      symbol: "°R",
+      toBase: (value) => value * (5 / 9),
+      fromBase: (value) => value * (9 / 5),
+      precision: "exact",
+      formulaToBase: "value × 5/9",
+      source: "Rankine scale definition",
+    },
+  ],
+};

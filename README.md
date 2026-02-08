@@ -1,36 +1,219 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Units
 
-## Getting Started
+> A transparent unit converter that shows you the math behind every conversion.
 
-First, run the development server:
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/s33g/units)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Live Demo**: [units.s33g.uk](https://units.s33g.uk)
+
+---
+
+## Why Units?
+
+Most converters are black boxes. You type a number, get a result, and have no idea if it's accurate.
+
+**Units is different:**
+- 📐 **Transparent**: See the exact formula and conversion steps
+- 🔬 **Accurate**: Every conversion factor is sourced (SI definitions, international standards)
+- 🎨 **Beautiful**: Clean, modern UI built with Next.js 16 and Tailwind CSS 4
+- 🔒 **Private**: 100% client-side. No tracking, no servers, no data collection
+- ⚡ **Fast**: Instant conversions with sharable URLs
+
+---
+
+## Features
+
+### 20+ Unit Categories
+
+- **Length & Distance** — meters, feet, miles, nautical miles, light-years
+- **Temperature** — Celsius, Fahrenheit, Kelvin, Rankine
+- **Mass & Weight** — kilograms, pounds, ounces, tons
+- **Volume** — liters, gallons, cups, cubic meters
+- **Time** — seconds, hours, days, years
+- **Speed** — m/s, mph, km/h, knots
+- **Energy** — joules, calories, BTU, kWh
+- **Pressure** — pascals, PSI, bar, atmospheres
+- **Power** — watts, horsepower, BTU/h
+- **Digital Storage** — bytes, kilobytes, megabytes, gigabytes
+- **Data Rate** — bps, Mbps, Gbps
+- **Area** — square meters, acres, hectares
+- **Force** — newtons, pounds-force, dynes
+- **Frequency** — hertz, RPM, radians/sec
+- **Fuel Economy** — MPG, L/100km
+- **Flow Rate** — L/s, GPM, cubic meters/hour
+- **Density** — kg/m³, g/cm³, lb/ft³
+- **Concentration** — mol/L, ppm, ppb
+- **Angle** — degrees, radians, gradians
+- **Torque** — N⋅m, lb⋅ft, kg⋅m
+
+### Formula Transparency
+
+Every conversion shows:
+- Step-by-step calculation
+- Exact conversion factors
+- Source documentation (e.g., "SI base unit", "International mile, exact by definition")
+- Precision indicator (exact vs. approximate)
+
+### Share Conversions
+
+URL-based state means every conversion is sharable:
+```
+https://units.s33g.uk/?c=length&from=miles&to=km&v=26.2
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quick Start
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Clone the repo
+git clone https://github.com/s33g/units.git
+cd units
 
-## Learn More
+# Install dependencies
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# Start dev server
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) and start converting!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev          # Development server (localhost:3000)
+npm run build        # Production build
+npm run start        # Serve production build
+npm run lint         # ESLint check
+npm test             # Run tests
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run with coverage report (100% threshold)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Tech Stack
+
+- **Framework**: Next.js 16 (App Router, React 19)
+- **Language**: TypeScript 5 (strict mode)
+- **Styling**: Tailwind CSS 4
+- **Testing**: Vitest + Testing Library
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+
+### Project Structure
+
+```
+units/
+├── app/
+│   ├── components/       # UI components
+│   ├── globals.css       # Tailwind + theme tokens
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── lib/
+│   ├── convert.ts        # Conversion engine
+│   ├── types.ts          # TypeScript types
+│   └── categories/       # Unit definitions (20 files)
+└── public/               # Static assets
+```
+
+---
+
+## Contributing
+
+We love contributions! Whether it's:
+
+- 🐛 Bug reports
+- 💡 Feature requests
+- 📝 Documentation improvements
+- ✨ New unit categories
+- 🧪 Test improvements
+
+**Read our [Contributing Guide](CONTRIBUTING.md) to get started.**
+
+### Good First Issues
+
+- Add new units to existing categories
+- Improve conversion accuracy with better sources
+- Add translations (i18n)
+- Performance optimizations
+
+---
+
+## Adding a New Unit Category
+
+1. Create `lib/categories/my-category.ts`:
+```typescript
+import type { Category } from "@/lib/types";
+
+export const myCategory: Category = {
+  id: "my-category",
+  name: "My Category",
+  icon: "🔥",
+  baseUnitId: "base-unit",
+  units: [
+    {
+      id: "base-unit",
+      name: "Base Unit",
+      symbol: "bu",
+      factor: 1,
+      precision: "exact",
+      formulaToBase: "value",
+      source: "Definition source here",
+    },
+    // Add more units...
+  ],
+};
+```
+
+2. Export it from `lib/categories/index.ts`
+3. Add tests in `lib/categories/categories.test.ts`
+4. Submit a PR!
+
+---
+
+## Testing
+
+We maintain **100% test coverage** to ensure conversion accuracy.
+
+```bash
+npm test                           # Run all tests
+npm run test:coverage              # Coverage report
+npx vitest run path/to/file.test.ts  # Single file
+```
+
+---
+
+## License
+
+[MIT](LICENSE) © s33g
+
+Free to use, modify, and distribute. Attribution appreciated but not required.
+
+---
+
+## Acknowledgments
+
+- Conversion factors sourced from [NIST](https://www.nist.gov/), [SI Brochure](https://www.bipm.org/en/publications/si-brochure/), and international standards
+- Built with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Lucide](https://lucide.dev/)
+
+---
+
+## Community
+
+- **Issues**: [Report bugs or request features](https://github.com/USERNAME/units/issues)
+- **Discussions**: [Ask questions and share ideas](https://github.com/USERNAME/units/discussions)
+- **Pull Requests**: [Contribute code](https://github.com/USERNAME/units/pulls)
+
+---
+
+<div align="center">
+
+**[⭐ Star this repo](https://github.com/s33g/units)** if you find it useful!
+
+</div>

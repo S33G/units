@@ -1,0 +1,55 @@
+import type { Category } from "@/lib/types";
+
+export const speed: Category = {
+  id: "speed",
+  name: "Speed",
+  icon: "💨",
+  baseUnitId: "meters-per-second",
+  units: [
+    {
+      id: "meters-per-second",
+      name: "Meters per Second",
+      symbol: "m/s",
+      factor: 1,
+      precision: "exact",
+      formulaToBase: "value × 1",
+      source: "SI derived unit",
+    },
+    {
+      id: "kilometers-per-hour",
+      name: "Kilometers per Hour",
+      symbol: "km/h",
+      factor: 0.2777777778,
+      precision: "exact",
+      formulaToBase: "value × 0.2777777778",
+      source: "SI units with hour definition",
+    },
+    {
+      id: "miles-per-hour",
+      name: "Miles per Hour",
+      symbol: "mph",
+      factor: 0.44704,
+      precision: "exact",
+      formulaToBase: "value × 0.44704",
+      source: "International mile and hour definition",
+    },
+    {
+      id: "feet-per-second",
+      name: "Feet per Second",
+      symbol: "ft/s",
+      factor: 0.3048,
+      precision: "exact",
+      formulaToBase: "value × 0.3048",
+      source: "International foot definition",
+    },
+    {
+      id: "knots",
+      name: "Knots",
+      symbol: "kn",
+      factor: 0.5144444444,
+      precision: "exact",
+      formulaToBase: "value × 0.5144444444",
+      source: "By definition: 1 kn = 1 nmi/h",
+    },
+  ],
+};
