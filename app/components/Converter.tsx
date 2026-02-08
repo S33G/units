@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { categories } from "@/lib/categories";
@@ -28,6 +28,7 @@ export function Converter() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const [, startTransition] = useTransition();
 
   const initialCategory = resolveCategory(searchParams.get("c"));
   const [selectedCategoryId, setSelectedCategoryId] = useState(initialCategory.id);
@@ -69,9 +70,11 @@ export function Converter() {
       params.set("from", from);
       params.set("to", to);
       if (val) params.set("v", val);
-      router.replace(`${pathname}?${params.toString()}`);
+      startTransition(() => {
+        router.replace(`${pathname}?${params.toString()}`);
+      });
     },
-    [pathname, router],
+    [pathname, router, startTransition],
   );
 
   function handleCategoryChange(id: string) {
