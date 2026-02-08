@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useMemo, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { categories } from "@/lib/categories";
 import { convert } from "@/lib/convert";
 import type { Category, ConversionResult } from "@/lib/types";
+import { loadConverterState, saveConverterState } from "@/lib/storage";
 
 import { CategorySidebar } from "@/app/components/CategorySidebar";
 import { CategoryMobileSelect } from "@/app/components/CategoryMobileSelect";
@@ -24,17 +25,50 @@ function resolveUnitId(category: Category, id: string | null, fallbackIndex: num
   return category.units[fallbackIndex]?.id ?? category.units[0].id;
 }
 
+function initializeState(searchParams: URLSearchParams) {
+  const hasUrlParams = searchParams.get("c") || searchParams.get("from") || searchParams.get("to") || searchParams.get("v");
+  
+  if (hasUrlParams) {
+    const initialCategory = resolveCategory(searchParams.get("c"));
+    return {
+      categoryId: initialCategory.id,
+      fromUnitId: resolveUnitId(initialCategory, searchParams.get("from"), 0),
+      toUnitId: resolveUnitId(initialCategory, searchParams.get("to"), 1),
+      inputValue: searchParams.get("v") ?? "",
+    };
+  }
+
+  const stored = loadConverterState();
+  if (stored) {
+    const cat = resolveCategory(stored.categoryId);
+    return {
+      categoryId: cat.id,
+      fromUnitId: resolveUnitId(cat, stored.fromUnitId, 0),
+      toUnitId: resolveUnitId(cat, stored.toUnitId, 1),
+      inputValue: stored.inputValue,
+    };
+  }
+
+  const defaultCategory = categories[0];
+  return {
+    categoryId: defaultCategory.id,
+    fromUnitId: defaultCategory.units[0]?.id ?? "",
+    toUnitId: defaultCategory.units[1]?.id ?? defaultCategory.units[0]?.id ?? "",
+    inputValue: "",
+  };
+}
+
 export function Converter() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const [, startTransition] = useTransition();
 
-  const initialCategory = resolveCategory(searchParams.get("c"));
-  const [selectedCategoryId, setSelectedCategoryId] = useState(initialCategory.id);
-  const [fromUnitId, setFromUnitId] = useState(resolveUnitId(initialCategory, searchParams.get("from"), 0));
-  const [toUnitId, setToUnitId] = useState(resolveUnitId(initialCategory, searchParams.get("to"), 1));
-  const [inputValue, setInputValue] = useState(searchParams.get("v") ?? "");
+  const initialState = useMemo(() => initializeState(searchParams), [searchParams]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(initialState.categoryId);
+  const [fromUnitId, setFromUnitId] = useState(initialState.fromUnitId);
+  const [toUnitId, setToUnitId] = useState(initialState.toUnitId);
+  const [inputValue, setInputValue] = useState(initialState.inputValue);
 
   const sortedCategories = useMemo(() => {
     return [...categories].sort((a, b) => a.name.localeCompare(b.name));
@@ -56,6 +90,15 @@ export function Converter() {
 
   const fromUnit = selectedCategory.units.find((u) => u.id === validFromId) ?? selectedCategory.units[0];
   const toUnit = selectedCategory.units.find((u) => u.id === validToId) ?? selectedCategory.units[1] ?? selectedCategory.units[0];
+
+  useEffect(() => {
+    saveConverterState({
+      categoryId: selectedCategoryId,
+      fromUnitId: validFromId,
+      toUnitId: validToId,
+      inputValue,
+    });
+  }, [selectedCategoryId, validFromId, validToId, inputValue]);
 
   const result: ConversionResult | null = useMemo(() => {
     const parsed = Number(inputValue);
