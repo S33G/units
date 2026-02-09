@@ -140,11 +140,35 @@ describe("categories", () => {
         expect(result.outputValue).toBeCloseTo(273.15, 6);
       });
 
-      it("-40°C = -40°F", () => {
-        const result = convert(-40, celsius, fahrenheit, temp);
-        expect(result.outputValue).toBeCloseTo(-40, 6);
-      });
-    });
+       it("-40°C = -40°F", () => {
+         const result = convert(-40, celsius, fahrenheit, temp);
+         expect(result.outputValue).toBeCloseTo(-40, 6);
+       });
+
+       it("0°Ré = 0°C = 273.15K", () => {
+         const reaumur = temp.units.find((u) => u.id === "reaumur")!;
+         const result = convert(0, reaumur, kelvin, temp);
+         expect(result.outputValue).toBeCloseTo(273.15, 6);
+       });
+
+       it("80°Ré = 100°C = 373.15K", () => {
+         const reaumur = temp.units.find((u) => u.id === "reaumur")!;
+         const result = convert(80, reaumur, kelvin, temp);
+         expect(result.outputValue).toBeCloseTo(373.15, 6);
+       });
+
+       it("0°De = 100°C = 373.15K", () => {
+         const delisle = temp.units.find((u) => u.id === "delisle")!;
+         const result = convert(0, delisle, kelvin, temp);
+         expect(result.outputValue).toBeCloseTo(373.15, 6);
+       });
+
+       it("150°De = 0°C = 273.15K", () => {
+         const delisle = temp.units.find((u) => u.id === "delisle")!;
+         const result = convert(150, delisle, kelvin, temp);
+         expect(result.outputValue).toBeCloseTo(273.15, 6);
+       });
+     });
 
     describe("mass conversions", () => {
       const mass = categories.find((c) => c.id === "mass")!;
