@@ -96,5 +96,23 @@ export const energy: Category = {
       formulaToBase: "value × 1.602176634e-19",
       source: "SI definition of elementary charge",
     },
+    {
+      id: "foot-pounds",
+      name: "Foot-pounds",
+      symbol: "ft·lbf",
+      factor: 1.3558179483,
+      precision: "exact",
+      formulaToBase: "value × 1.3558179483",
+      source: "From lbf and international foot definitions",
+    },
+    {
+      id: "ergs",
+      name: "Ergs",
+      symbol: "erg",
+      factor: 1e-7,
+      precision: "exact",
+      formulaToBase: "value × 1e-7",
+      source: "CGS system: 1 erg = 10⁻⁷ J",
+    },
   ],
 };
