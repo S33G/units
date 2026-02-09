@@ -26,28 +26,33 @@ Most converters are black boxes. You type a number, get a result, and have no id
 
 ## Features
 
-### 20+ Unit Categories
+### 22 Unit Categories with 250+ Units
 
-- **Length & Distance** — meters, feet, miles, nautical miles, light-years
-- **Temperature** — Celsius, Fahrenheit, Kelvin, Rankine
-- **Mass & Weight** — kilograms, pounds, ounces, tons
-- **Volume** — liters, gallons, cups, cubic meters
-- **Time** — seconds, hours, days, years
-- **Speed** — m/s, mph, km/h, knots
-- **Energy** — joules, calories, BTU, kWh
-- **Pressure** — pascals, PSI, bar, atmospheres
+**Core Categories:**
+- **Length & Distance** — meters, feet, miles, nautical miles, light-years, Chinese lǐ/chǐ, Scandinavian mil, picometers, decimeters
+- **Temperature** — Celsius, Fahrenheit, Kelvin, Rankine, Réaumur, Delisle
+- **Mass & Weight** — kilograms, pounds, ounces, tons, Indian tola/seer, Japanese momme, Thai baht, pennyweights
+- **Volume** — liters, gallons, cups, cubic meters, imperial cups/tbsp/tsp, Japanese gō
+- **Time** — seconds, hours, days, weeks, years, months, decades
+- **Speed** — m/s, mph, km/h, knots, Mach, speed of light, cm/s
+- **Energy** — joules, calories, BTU, kWh, foot-pounds, ergs
+- **Pressure** — pascals, PSI, bar, atmospheres, mmHg, inHg
 - **Power** — watts, horsepower, BTU/h
-- **Digital Storage** — bytes, kilobytes, megabytes, gigabytes
+- **Digital Storage** — bytes through petabytes/pebibytes (decimal and binary prefixes)
 - **Data Rate** — bps, Mbps, Gbps
-- **Area** — square meters, acres, hectares
+- **Area** — square meters, acres, hectares, Chinese mǔ, Japanese tsubo, Korean pyeong, Indian bigha, Thai rai, Vietnamese mẫu, dunam
 - **Force** — newtons, pounds-force, dynes
 - **Frequency** — hertz, RPM, radians/sec
 - **Fuel Economy** — MPG, L/100km
 - **Flow Rate** — L/s, GPM, cubic meters/hour
-- **Density** — kg/m³, g/cm³, lb/ft³
+- **Density** — kg/m³, g/cm³, lb/ft³, kg/L, g/mL, lb/gal
 - **Concentration** — mol/L, ppm, ppb
-- **Angle** — degrees, radians, gradians
+- **Angle** — degrees, radians, gradians, turns, milliradians
 - **Torque** — N⋅m, lb⋅ft, kg⋅m
+
+**New Categories:**
+- **Illuminance** — lux, kilolux, foot-candles, phot
+- **Cooking Volume** — metric/Australian/Japanese cups, tablespoons, teaspoons, dessert spoons, drops, pinches
 
 ### Formula Transparency
 
@@ -117,7 +122,7 @@ units/
 ├── lib/
 │   ├── convert.ts        # Conversion engine
 │   ├── types.ts          # TypeScript types
-│   └── categories/       # Unit definitions (20 files)
+│   └── categories/       # Unit definitions (22 category files, 250+ units)
 └── public/               # Static assets
 ```
 
