@@ -69,5 +69,23 @@ export const speed: Category = {
       formulaToBase: "value × 0.836 × value^(3/2) (Empirical)",
       source: "Empirical power law V = 0.836 B^(3/2) m/s",
     },
+    {
+      id: "centimeters-per-second",
+      name: "Centimetres per Second",
+      symbol: "cm/s",
+      factor: 0.01,
+      precision: "exact",
+      formulaToBase: "value × 0.01",
+      source: "SI definition",
+    },
+    {
+      id: "speed-of-light",
+      name: "Speed of Light",
+      symbol: "c",
+      factor: 299792458,
+      precision: "exact",
+      formulaToBase: "value × 299792458",
+      source: "SI definition: c = 299,792,458 m/s",
+    },
   ],
 };
