@@ -96,5 +96,23 @@ export const digitalStorage: Category = {
       formulaToBase: "value × 1099511627776",
       source: "IEC binary prefix",
     },
+    {
+      id: "petabytes",
+      name: "Petabytes",
+      symbol: "PB",
+      factor: 1e15,
+      precision: "exact",
+      formulaToBase: "value × 1e15",
+      source: "SI decimal prefix",
+    },
+    {
+      id: "pebibytes",
+      name: "Pebibytes",
+      symbol: "PiB",
+      factor: 1125899906842624,
+      precision: "exact",
+      formulaToBase: "value × 1125899906842624",
+      source: "IEC binary prefix: 2⁵⁰",
+    },
   ],
 };
