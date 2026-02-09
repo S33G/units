@@ -51,5 +51,23 @@ export const angle: Category = {
       formulaToBase: "value × π/648000",
       source: "By definition: 1″ = 1/60′",
     },
+    {
+      id: "turns",
+      name: "Turns",
+      symbol: "rev",
+      factor: 2 * Math.PI,
+      precision: "approximate",
+      formulaToBase: "value × 2π",
+      source: "By definition: 1 turn = 2π rad",
+    },
+    {
+      id: "milliradians",
+      name: "Milliradians",
+      symbol: "mrad",
+      factor: 0.001,
+      precision: "exact",
+      formulaToBase: "value × 0.001",
+      source: "SI definition (milli prefix)",
+    },
   ],
 };
