@@ -168,6 +168,18 @@ describe("categories", () => {
          const result = convert(150, delisle, kelvin, temp);
          expect(result.outputValue).toBeCloseTo(273.15, 6);
        });
+
+       it("273.15K = 0°Ré (fromBase)", () => {
+         const reaumur = temp.units.find((u) => u.id === "reaumur")!;
+         const result = convert(273.15, kelvin, reaumur, temp);
+         expect(result.outputValue).toBeCloseTo(0, 6);
+       });
+
+       it("373.15K = 0°De (fromBase)", () => {
+         const delisle = temp.units.find((u) => u.id === "delisle")!;
+         const result = convert(373.15, kelvin, delisle, temp);
+         expect(result.outputValue).toBeCloseTo(0, 6);
+       });
      });
 
     describe("mass conversions", () => {
