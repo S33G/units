@@ -195,6 +195,117 @@ describe("categories", () => {
         });
       }
     });
+
+    describe("length international conversions", () => {
+      const length = categories.find((c) => c.id === "length")!;
+      const meters = length.units.find((u) => u.id === "meters")!;
+
+      it("1 Chinese lǐ = 500 metres", () => {
+        const li = length.units.find((u) => u.id === "chinese-li")!;
+        const result = convert(1, li, meters, length);
+        expect(result.outputValue).toBe(500);
+      });
+
+      it("1 Scandinavian mil = 10000 metres", () => {
+        const mil = length.units.find((u) => u.id === "scandinavian-mil")!;
+        const result = convert(1, mil, meters, length);
+        expect(result.outputValue).toBe(10000);
+      });
+
+      it("1 light-year = 9460730472580800 metres", () => {
+        const ly = length.units.find((u) => u.id === "light-years")!;
+        const result = convert(1, ly, meters, length);
+        expect(result.outputValue).toBe(9460730472580800);
+      });
+    });
+
+    describe("mass international conversions", () => {
+      const mass = categories.find((c) => c.id === "mass")!;
+      const grams = mass.units.find((u) => u.id === "grams")!;
+
+      it("1 Indian tola = 11.6638 grams", () => {
+        const tola = mass.units.find((u) => u.id === "indian-tola")!;
+        const result = convert(1, tola, grams, mass);
+        expect(result.outputValue).toBeCloseTo(11.6638, 4);
+      });
+
+      it("1 Japanese momme = 3.75 grams", () => {
+        const momme = mass.units.find((u) => u.id === "japanese-momme")!;
+        const result = convert(1, momme, grams, mass);
+        expect(result.outputValue).toBe(3.75);
+      });
+    });
+
+    describe("area international conversions", () => {
+      const area = categories.find((c) => c.id === "area")!;
+      const sqm = area.units.find((u) => u.id === "square-meters")!;
+
+      it("1 Thai rai = 1600 m²", () => {
+        const rai = area.units.find((u) => u.id === "thai-rai")!;
+        const result = convert(1, rai, sqm, area);
+        expect(result.outputValue).toBe(1600);
+      });
+    });
+
+    describe("speed conversions", () => {
+      const speed = categories.find((c) => c.id === "speed")!;
+      const ms = speed.units.find((u) => u.id === "meters-per-second")!;
+
+      it("1c = 299792458 m/s", () => {
+        const c = speed.units.find((u) => u.id === "speed-of-light")!;
+        const result = convert(1, c, ms, speed);
+        expect(result.outputValue).toBe(299792458);
+      });
+    });
+
+    describe("pressure conversions", () => {
+      const pressure = categories.find((c) => c.id === "pressure")!;
+      const pa = pressure.units.find((u) => u.id === "pascals")!;
+
+      it("1 mmHg = 133.322387415 Pa", () => {
+        const mmhg = pressure.units.find(
+          (u) => u.id === "millimeters-of-mercury",
+        )!;
+        const result = convert(1, mmhg, pa, pressure);
+        expect(result.outputValue).toBeCloseTo(133.322387415, 6);
+      });
+    });
+
+    describe("illuminance conversions", () => {
+      const illuminance = categories.find((c) => c.id === "illuminance")!;
+      const lux = illuminance.units.find((u) => u.id === "lux")!;
+
+      it("1 phot = 10000 lux", () => {
+        const phot = illuminance.units.find((u) => u.id === "phot")!;
+        const result = convert(1, phot, lux, illuminance);
+        expect(result.outputValue).toBe(10000);
+      });
+    });
+
+    describe("cooking volume conversions", () => {
+      const cooking = categories.find((c) => c.id === "cooking")!;
+      const ml = cooking.units.find((u) => u.id === "milliliters-cooking")!;
+
+      it("1 metric cup = 250 mL", () => {
+        const cup = cooking.units.find((u) => u.id === "metric-cups")!;
+        const result = convert(1, cup, ml, cooking);
+        expect(result.outputValue).toBe(250);
+      });
+
+      it("1 Japanese cup = 200 mL", () => {
+        const jpCup = cooking.units.find((u) => u.id === "japanese-cups")!;
+        const result = convert(1, jpCup, ml, cooking);
+        expect(result.outputValue).toBe(200);
+      });
+
+      it("1 Australian tbsp = 20 mL", () => {
+        const auTbsp = cooking.units.find(
+          (u) => u.id === "australian-tablespoons",
+        )!;
+        const result = convert(1, auTbsp, ml, cooking);
+        expect(result.outputValue).toBe(20);
+      });
+    });
   });
 
   describe("round-trip conversions", () => {
