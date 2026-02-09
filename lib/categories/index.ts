@@ -3,6 +3,7 @@ import type { Category } from "@/lib/types";
 import { angle } from "./angle";
 import { area } from "./area";
 import { concentration } from "./concentration";
+import { cooking } from "./cooking";
 import { dataRate } from "./data-rate";
 import { density } from "./density";
 import { digitalStorage } from "./digital-storage";
@@ -11,6 +12,7 @@ import { flowRate } from "./flow-rate";
 import { force } from "./force";
 import { frequency } from "./frequency";
 import { fuelEconomy } from "./fuel-economy";
+import { illuminance } from "./illuminance";
 import { length } from "./length";
 import { mass } from "./mass";
 import { power } from "./power";
@@ -42,4 +44,6 @@ export const categories: Category[] = [
   flowRate,
   density,
   concentration,
+  illuminance,
+  cooking,
 ];
