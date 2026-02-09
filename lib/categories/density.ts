@@ -8,7 +8,7 @@ export const density: Category = {
   units: [
     {
       id: "kilograms-per-cubic-meter",
-      name: "Kilograms per Cubic Meter",
+      name: "Kilograms per Cubic Metre",
       symbol: "kg/m³",
       factor: 1,
       precision: "exact",
@@ -17,7 +17,7 @@ export const density: Category = {
     },
     {
       id: "grams-per-cubic-centimeter",
-      name: "Grams per Cubic Centimeter",
+      name: "Grams per Cubic Centimetre",
       symbol: "g/cm³",
       factor: 1000,
       precision: "exact",

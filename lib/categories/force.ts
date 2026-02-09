@@ -52,6 +52,15 @@ export const force: Category = {
       source: "International yard and pound agreement, 1959",
     },
     {
+      id: "poundals",
+      name: "Poundals",
+      symbol: "pdl",
+      factor: 0.138254954376,
+      precision: "exact",
+      formulaToBase: "value × 0.138255",
+      source: "Imperial foot-pound-second system",
+    },
+    {
       id: "kips",
       name: "Kips",
       symbol: "kip",

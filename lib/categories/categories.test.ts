@@ -113,7 +113,7 @@ describe("categories", () => {
         expect(result.outputValue).toBe(1.609344);
       });
 
-      it("1 foot = 0.3048 meters (exact)", () => {
+      it("1 foot = 0.3048 metres (exact)", () => {
         const result = convert(1, feet, meters, length);
         expect(result.outputValue).toBe(0.3048);
       });
@@ -165,7 +165,7 @@ describe("categories", () => {
         const liters = volume.units.find((u) => u.id === "liters")!;
         const gallons = volume.units.find((u) => u.name.includes("Gallon"))!;
 
-        it("converts liters to gallons", () => {
+        it("converts litres to gallons", () => {
           const result = convert(1, liters, gallons, volume);
           expect(result.outputValue).toBeGreaterThan(0);
         });

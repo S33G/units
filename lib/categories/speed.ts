@@ -8,7 +8,7 @@ export const speed: Category = {
   units: [
     {
       id: "meters-per-second",
-      name: "Meters per Second",
+      name: "Metres per Second",
       symbol: "m/s",
       factor: 1,
       precision: "exact",
@@ -17,7 +17,7 @@ export const speed: Category = {
     },
     {
       id: "kilometers-per-hour",
-      name: "Kilometers per Hour",
+      name: "Kilometres per Hour",
       symbol: "km/h",
       factor: 0.2777777778,
       precision: "exact",
@@ -50,6 +50,24 @@ export const speed: Category = {
       precision: "exact",
       formulaToBase: "value × 0.5144444444",
       source: "By definition: 1 kn = 1 nmi/h",
+    },
+    {
+      id: "mach",
+      name: "Mach (Standard Atmosphere)",
+      symbol: "Ma",
+      factor: 340.29,
+      precision: "approximate",
+      formulaToBase: "value × 340.29",
+      source: "Speed of sound at sea level (15°C, 1 atm)",
+    },
+    {
+      id: "beaufort",
+      name: "Beaufort Scale (Max Wind)",
+      symbol: "Bft",
+      factor: 0.836,
+      precision: "approximate",
+      formulaToBase: "value × 0.836 × value^(3/2) (Empirical)",
+      source: "Empirical power law V = 0.836 B^(3/2) m/s",
     },
   ],
 };

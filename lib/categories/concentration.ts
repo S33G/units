@@ -8,7 +8,7 @@ export const concentration: Category = {
   units: [
     {
       id: "milligrams-per-liter",
-      name: "Milligrams per Liter",
+      name: "Milligrams per Litre",
       symbol: "mg/L",
       factor: 1,
       precision: "exact",
@@ -26,7 +26,7 @@ export const concentration: Category = {
     },
     {
       id: "grams-per-liter",
-      name: "Grams per Liter",
+      name: "Grams per Litre",
       symbol: "g/L",
       factor: 1000,
       precision: "exact",

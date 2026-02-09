@@ -6,7 +6,7 @@ import { temperature } from "@/lib/categories/temperature";
 
 describe("convert", () => {
   describe("linear conversions (factor-based)", () => {
-    it("converts meters to feet correctly", () => {
+    it("converts metres to feet correctly", () => {
       const meters = length.units.find((u) => u.id === "meters")!;
       const feet = length.units.find((u) => u.id === "feet")!;
       const result = convert(5, meters, feet, length);
@@ -17,11 +17,11 @@ describe("convert", () => {
       expect(result.toUnit.id).toBe("feet");
       expect(result.category.id).toBe("length");
       expect(result.steps).toHaveLength(2);
-      expect(result.steps[0].description).toContain("Meters to Meters");
-      expect(result.steps[1].description).toContain("Meters to Feet");
+      expect(result.steps[0].description).toContain("Metres to Metres");
+      expect(result.steps[1].description).toContain("Metres to Feet");
     });
 
-    it("converts feet to meters correctly", () => {
+    it("converts feet to metres correctly", () => {
       const meters = length.units.find((u) => u.id === "meters")!;
       const feet = length.units.find((u) => u.id === "feet")!;
       const result = convert(16.4042, feet, meters, length);
@@ -29,7 +29,7 @@ describe("convert", () => {
       expect(result.outputValue).toBeCloseTo(5, 4);
     });
 
-    it("converts miles to kilometers correctly", () => {
+    it("converts miles to kilometres correctly", () => {
       const miles = length.units.find((u) => u.id === "miles")!;
       const km = length.units.find((u) => u.id === "kilometers")!;
       const result = convert(1, miles, km, length);
@@ -38,7 +38,7 @@ describe("convert", () => {
       expect(result.steps).toHaveLength(2);
     });
 
-    it("converts kilometers to miles correctly", () => {
+    it("converts kilometres to miles correctly", () => {
       const miles = length.units.find((u) => u.id === "miles")!;
       const km = length.units.find((u) => u.id === "kilometers")!;
       const result = convert(1.609344, km, miles, length);
@@ -46,7 +46,7 @@ describe("convert", () => {
       expect(result.outputValue).toBeCloseTo(1, 6);
     });
 
-    it("converts inches to centimeters correctly", () => {
+    it("converts inches to centimetres correctly", () => {
       const inches = length.units.find((u) => u.id === "inches")!;
       const cm = length.units.find((u) => u.id === "centimeters")!;
       const result = convert(10, inches, cm, length);
@@ -54,7 +54,7 @@ describe("convert", () => {
       expect(result.outputValue).toBeCloseTo(25.4, 6);
     });
 
-    it("converts very large values (astronomical units to meters)", () => {
+    it("converts very large values (astronomical units to metres)", () => {
       const au = length.units.find((u) => u.id === "astronomical-units")!;
       const meters = length.units.find((u) => u.id === "meters")!;
       const result = convert(1, au, meters, length);
@@ -62,7 +62,7 @@ describe("convert", () => {
       expect(result.outputValue).toBe(149597870700);
     });
 
-    it("converts very small values (nanometers to meters)", () => {
+    it("converts very small values (nanometres to metres)", () => {
       const nm = length.units.find((u) => u.id === "nanometers")!;
       const meters = length.units.find((u) => u.id === "meters")!;
       const result = convert(500, nm, meters, length);

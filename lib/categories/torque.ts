@@ -8,7 +8,7 @@ export const torque: Category = {
   units: [
     {
       id: "newton-meters",
-      name: "Newton-meters",
+      name: "Newton-metres",
       symbol: "N·m",
       factor: 1,
       precision: "exact",
@@ -17,7 +17,7 @@ export const torque: Category = {
     },
     {
       id: "newton-centimeters",
-      name: "Newton-centimeters",
+      name: "Newton-centimetres",
       symbol: "N·cm",
       factor: 0.01,
       precision: "exact",
@@ -44,7 +44,7 @@ export const torque: Category = {
     },
     {
       id: "kilogram-force-meters",
-      name: "Kilogram-force meters",
+      name: "Kilogram-force metres",
       symbol: "kgf·m",
       factor: 9.80665,
       precision: "exact",
@@ -53,7 +53,7 @@ export const torque: Category = {
     },
     {
       id: "kilogram-force-centimeters",
-      name: "Kilogram-force centimeters",
+      name: "Kilogram-force centimetres",
       symbol: "kgf·cm",
       factor: 0.0980665,
       precision: "exact",

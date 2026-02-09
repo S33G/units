@@ -8,7 +8,7 @@ export const fuelEconomy: Category = {
   units: [
     {
       id: "km-per-liter",
-      name: "Kilometers per Liter",
+      name: "Kilometres per Litre",
       symbol: "km/L",
       factor: 1,
       precision: "exact",
@@ -17,7 +17,7 @@ export const fuelEconomy: Category = {
     },
     {
       id: "liters-per-100km",
-      name: "Liters per 100 Kilometers",
+      name: "Litres per 100 Kilometres",
       symbol: "L/100 km",
       toBase: (value) => 100 / value,
       fromBase: (value) => 100 / value,

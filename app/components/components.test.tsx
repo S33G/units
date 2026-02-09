@@ -55,7 +55,7 @@ describe("FormulaExplainer", () => {
 
     render(<FormulaExplainer result={result} />);
     expect(screen.getByText(/how this conversion works/i)).toBeInTheDocument();
-    expect(screen.getByText(/Meters → Meters → Feet/i)).toBeInTheDocument();
+    expect(screen.getByText(/Metres → Metres → Feet/i)).toBeInTheDocument();
   });
 
   it("displays precision information", () => {
@@ -103,7 +103,7 @@ describe("FormulaExplainer", () => {
     };
 
     render(<FormulaExplainer result={invalidResult} />);
-    expect(screen.getByText(/Meters → Base → Feet/i)).toBeInTheDocument();
+    expect(screen.getByText(/Metres → Base → Feet/i)).toBeInTheDocument();
   });
 });
 

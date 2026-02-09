@@ -8,7 +8,7 @@ export const flowRate: Category = {
   units: [
     {
       id: "liters-per-minute",
-      name: "Liters per Minute",
+      name: "Litres per Minute",
       symbol: "L/min",
       factor: 1,
       precision: "exact",
@@ -17,7 +17,7 @@ export const flowRate: Category = {
     },
     {
       id: "liters-per-hour",
-      name: "Liters per Hour",
+      name: "Litres per Hour",
       symbol: "L/h",
       factor: 1 / 60,
       precision: "exact",
@@ -26,7 +26,7 @@ export const flowRate: Category = {
     },
     {
       id: "cubic-meters-per-hour",
-      name: "Cubic Meters per Hour",
+      name: "Cubic Metres per Hour",
       symbol: "m³/h",
       factor: 1000 / 60,
       precision: "exact",

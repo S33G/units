@@ -8,7 +8,7 @@ export const area: Category = {
   units: [
     {
       id: "square-millimeters",
-      name: "Square Millimeters",
+      name: "Square Millimetres",
       symbol: "mm²",
       factor: 0.000001,
       precision: "exact",
@@ -17,7 +17,7 @@ export const area: Category = {
     },
     {
       id: "square-centimeters",
-      name: "Square Centimeters",
+      name: "Square Centimetres",
       symbol: "cm²",
       factor: 0.0001,
       precision: "exact",
@@ -26,7 +26,7 @@ export const area: Category = {
     },
     {
       id: "square-meters",
-      name: "Square Meters",
+      name: "Square Metres",
       symbol: "m²",
       factor: 1,
       precision: "exact",
@@ -35,7 +35,7 @@ export const area: Category = {
     },
     {
       id: "square-kilometers",
-      name: "Square Kilometers",
+      name: "Square Kilometres",
       symbol: "km²",
       factor: 1000000,
       precision: "exact",
@@ -104,6 +104,33 @@ export const area: Category = {
       precision: "exact",
       formulaToBase: "value × 100",
       source: "SI accepted unit",
+    },
+    {
+      id: "dunam",
+      name: "Dunam (Metric)",
+      symbol: "dunam",
+      factor: 1000,
+      precision: "exact",
+      formulaToBase: "value × 1000",
+      source: "Old Ottoman unit, redefined metric",
+    },
+    {
+      id: "tsubo",
+      name: "Tsubo",
+      symbol: "tsubo",
+      factor: 3.305785,
+      precision: "approximate",
+      formulaToBase: "value × 3.306",
+      source: "Japanese measurement law",
+    },
+    {
+      id: "barns",
+      name: "Barns",
+      symbol: "b",
+      factor: 1e-28,
+      precision: "exact",
+      formulaToBase: "value × 10⁻²⁸",
+      source: "Nuclear physics unit",
     },
   ],
 };
