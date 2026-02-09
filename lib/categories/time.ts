@@ -87,5 +87,23 @@ export const time: Category = {
       formulaToBase: "value × 31557600",
       source: "Julian year definition (365.25 days)",
     },
+    {
+      id: "months",
+      name: "Months (Julian avg)",
+      symbol: "mo",
+      factor: 2629800,
+      precision: "exact",
+      formulaToBase: "value × 2629800",
+      source: "1/12 Julian year: 365.25 × 86400 / 12 = 2,629,800 s",
+    },
+    {
+      id: "decades",
+      name: "Decades",
+      symbol: "dec",
+      factor: 315576000,
+      precision: "exact",
+      formulaToBase: "value × 315576000",
+      source: "10 Julian years: 10 × 365.25 × 86400",
+    },
   ],
 };
